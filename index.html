@@ -1,377 +1,170 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-    />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>كشف توزيع الأضحية | منزل الحاج عبدالستار كشك</title>
-
+    
     <!-- خطوط جوجل (Cairo) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap"
-      rel="stylesheet"
-    />
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-
+    
     <!-- html2pdf -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-
+    
     <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: { sans: ["Cairo", "sans-serif"] },
-            colors: {
-              brand: {
-                50: "#f0fdf4",
-                100: "#dcfce7",
-                500: "#22c55e",
-                600: "#16a34a",
-                700: "#15803d",
-                900: "#14532d",
-              },
-              gold: { 400: "#fbbf24", 500: "#f59e0b", 600: "#d97706" },
-            },
-          },
-        },
-      };
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Cairo', 'sans-serif'] },
+                    colors: {
+                        brand: { 50: '#f0fdf4', 100: '#dcfce7', 500: '#22c55e', 600: '#16a34a', 700: '#15803d', 900: '#14532d' },
+                        gold: { 400: '#fbbf24', 500: '#f59e0b', 600: '#d97706' }
+                    }
+                }
+            }
+        }
     </script>
 
     <style>
-      body {
-        font-family: "Cairo", sans-serif;
-        background-color: #f8fafc;
-        -webkit-tap-highlight-color: transparent;
-      }
-
-      /* تأثيرات حركية للبطاقات */
-      .card-enter {
-        animation: slideUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-        opacity: 0;
-        transform: translateY(20px);
-      }
-
-      @keyframes slideUp {
-        to {
-          opacity: 1;
-          transform: translateY(0);
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #f8fafc;
+            -webkit-tap-highlight-color: transparent;
         }
-      }
 
-      /* مربعات التحديد للشاشة */
-      .custom-checkbox {
-        width: 24px;
-        height: 24px;
-        border: 2px solid #cbd5e1;
-        border-radius: 6px;
-        background-color: white;
-        transition: all 0.2s;
-        cursor: pointer;
-        position: relative;
-        flex-shrink: 0;
-      }
-      .custom-checkbox.checked {
-        background-color: #16a34a;
-        border-color: #16a34a;
-      }
-      .custom-checkbox.checked::after {
-        content: "";
-        position: absolute;
-        left: 7px;
-        top: 3px;
-        width: 6px;
-        height: 12px;
-        border: solid white;
-        border-width: 0 2px 2px 0;
-        transform: rotate(45deg);
-      }
+        /* تأثيرات حركية للبطاقات */
+        .card-enter {
+            animation: slideUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        @keyframes slideUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* مربعات التحديد للشاشة */
+        .custom-checkbox {
+            width: 24px; height: 24px;
+            border: 2px solid #cbd5e1;
+            border-radius: 6px;
+            background-color: white;
+            transition: all 0.2s;
+            cursor: pointer;
+            position: relative;
+            flex-shrink: 0;
+        }
+        .custom-checkbox.checked {
+            background-color: #16a34a; border-color: #16a34a;
+        }
+        .custom-checkbox.checked::after {
+            content: ''; position: absolute;
+            left: 7px; top: 3px; width: 6px; height: 12px;
+            border: solid white; border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
     </style>
-  </head>
-  <body class="text-slate-800 pb-24 relative min-h-screen">
+</head>
+<body class="text-slate-800 pb-24 relative min-h-screen">
+
     <!-- خلفية زخرفية علوية -->
-    <div
-      class="absolute top-0 left-0 right-0 h-[320px] bg-gradient-to-br from-brand-900 via-brand-700 to-brand-600 -z-10 overflow-hidden"
-    >
-      <div
-        class="absolute inset-0 opacity-10"
-        style="
-          background-image: radial-gradient(
-            circle at 2px 2px,
-            white 1px,
-            transparent 0
-          );
-          background-size: 32px 32px;
-        "
-      ></div>
+    <div class="absolute top-0 left-0 right-0 h-[320px] bg-gradient-to-br from-brand-900 via-brand-700 to-brand-600 -z-10 overflow-hidden">
+        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 32px 32px;"></div>
     </div>
 
     <!-- المحتوى الرئيسي -->
     <main class="max-w-6xl mx-auto px-4 pt-10 sm:pt-16 relative z-10">
-      <!-- الترويسة -->
-      <header
-        class="text-center mb-10 card-enter"
-        style="animation-delay: 0.1s"
-      >
-        <div
-          class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-white shadow-xl shadow-brand-900/20 mb-4 transform rotate-3"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="w-8 h-8 text-brand-600 -rotate-3"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path
-              d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
-            ></path>
-            <polyline points="14 2 14 8 20 8"></polyline>
-            <line x1="16" y1="13" x2="8" y2="13"></line>
-            <line x1="16" y1="17" x2="8" y2="17"></line>
-            <polyline points="10 9 9 9 8 9"></polyline>
-          </svg>
+        
+        <!-- الترويسة -->
+        <header class="text-center mb-10 card-enter" style="animation-delay: 0.1s;">
+            <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-white shadow-xl shadow-brand-900/20 mb-4 transform rotate-3">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-brand-600 -rotate-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+            </div>
+            <h1 class="text-3xl sm:text-5xl font-black text-white mb-2 tracking-tight drop-shadow-md">توزيع لحوم الأضحية</h1>
+            <h2 class="text-xl sm:text-3xl font-bold text-gold-400 mb-5 drop-shadow-sm">منزل المرحوم الحاج عبدالستار كشك</h2>
+            
+            <div class="flex items-center justify-center gap-4 text-brand-50 mt-2">
+                <span class="bg-white/20 px-4 py-1.5 rounded-full text-sm font-semibold backdrop-blur-sm shadow-sm" id="stats-sections">... منطقة</span>
+                <span class="bg-white/20 px-4 py-1.5 rounded-full text-sm font-semibold backdrop-blur-sm shadow-sm" id="stats-names">... اسم</span>
+            </div>
+        </header>
+
+        <!-- زر التحميل العائم -->
+        <div class="fixed bottom-6 left-0 right-0 px-4 z-50 flex justify-center md:sticky md:top-6 md:mb-8 md:px-0">
+            <button id="downloadBtn" onclick="generatePDF()" class="w-full md:w-auto bg-gold-500 hover:bg-gold-600 text-white font-bold text-lg py-4 px-8 rounded-2xl shadow-[0_8px_30px_rgb(245,158,11,0.4)] flex items-center justify-center gap-3 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 active:scale-95">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                <span id="btnText">حفظ كـ PDF (ورقة واحدة)</span>
+            </button>
         </div>
-        <h1
-          class="text-3xl sm:text-5xl font-black text-white mb-2 tracking-tight drop-shadow-md"
-        >
-          توزيع لحوم الأضحية
-        </h1>
-        <h2
-          class="text-xl sm:text-3xl font-bold text-gold-400 mb-5 drop-shadow-sm"
-        >
-          منزل المرحوم الحاج عبدالستار كشك
-        </h2>
 
-        <div class="flex items-center justify-center gap-4 text-brand-50 mt-2">
-          <span
-            class="bg-white/20 px-4 py-1.5 rounded-full text-sm font-semibold backdrop-blur-sm shadow-sm"
-            id="stats-sections"
-            >... منطقة</span
-          >
-          <span
-            class="bg-white/20 px-4 py-1.5 rounded-full text-sm font-semibold backdrop-blur-sm shadow-sm"
-            id="stats-names"
-            >... اسم</span
-          >
+        <!-- شبكة عرض البيانات للشاشة -->
+        <div id="ui-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 relative z-10">
+            <!-- سيتم توليد البطاقات هنا بواسطة JS -->
         </div>
-      </header>
 
-      <!-- زر التحميل العائم -->
-      <div
-        class="fixed bottom-6 left-0 right-0 px-4 z-50 flex justify-center md:sticky md:top-6 md:mb-8 md:px-0"
-      >
-        <button
-          id="downloadBtn"
-          onclick="generatePDF()"
-          class="w-full md:w-auto bg-gold-500 hover:bg-gold-600 text-white font-bold text-lg py-4 px-8 rounded-2xl shadow-[0_8px_30px_rgb(245,158,11,0.4)] flex items-center justify-center gap-3 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 active:scale-95"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="w-6 h-6"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-            <polyline points="7 10 12 15 17 10"></polyline>
-            <line x1="12" y1="15" x2="12" y2="3"></line>
-          </svg>
-          <span id="btnText">حفظ كـ PDF (ورقة واحدة)</span>
-        </button>
-      </div>
+        <!-- زر مسح البيانات -->
+        <div class="text-center mt-12 mb-8">
+            <button onclick="clearAllData()" class="text-slate-400 hover:text-red-500 font-semibold text-sm transition-colors border border-slate-300 hover:border-red-500 rounded-lg px-4 py-2">
+                مسح جميع التحديدات (بدء من جديد)
+            </button>
+        </div>
 
-      <!-- شبكة عرض البيانات للشاشة -->
-      <div
-        id="ui-container"
-        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 relative z-10"
-      >
-        <!-- سيتم توليد البطاقات هنا بواسطة JS -->
-      </div>
-
-      <!-- زر مسح البيانات -->
-      <div class="text-center mt-12 mb-8">
-        <button
-          onclick="clearAllData()"
-          class="text-slate-400 hover:text-red-500 font-semibold text-sm transition-colors border border-slate-300 hover:border-red-500 rounded-lg px-4 py-2"
-        >
-          مسح جميع التحديدات (بدء من جديد)
-        </button>
-      </div>
     </main>
 
     <script>
-      // البيانات
-      const data = [
-        {
-          location: "وسط البلد ( قبل محاسن )",
-          names: [
-            "راضي كشك",
-            "طارق الدسوقي",
-            "مرات محمد زيدان",
-            "مرات نجاح",
-            "هانم",
-            "محمد عز",
-            "ابو اليزيد",
-          ],
-        },
-        {
-          location: "ع الطريق",
-          names: [
-            "ام محسن",
-            "ابو سمير",
-            "مرات منتصر",
-            "ام عبد الحميد ( كفر الصعايدة )",
-          ],
-        },
-        { location: "مسجد الكردي", names: ["محمد حجاج"] },
-        {
-          location: "مسجد سيدي سالم",
-          names: [
-            "ام رجب عويس",
-            "سالم عويس",
-            "محروس عويس",
-            "ام اسامه",
-            "محمد رشاد",
-            "خميس عويس",
-          ],
-        },
-        { location: "اول شارع الحضانه", names: ["بيت إبراهيم صالح ( 3 فرد )"] },
-        {
-          location: "شارع الحضانه",
-          names: [
-            "رجب عويس",
-            "باسم زيدان",
-            "محمود زيدان",
-            "احمد زيدان",
-            "عماد كشك",
-          ],
-        },
-        {
-          location: "اول شارع حماده ندا",
-          names: ["شتا ( بيت الدرجيني )", "باشا", "صلوحه"],
-        },
-        {
-          location: "شارع البراجيه",
-          names: [
-            "مرات المغاوري",
-            "بنت ابراهيم صالح ( تكمله البيت )",
-            "صفاء عيسي",
-            "علاء كشك",
-            "رمضان كشك",
-            "محمد الربع",
-            "رجب حسن عويس",
-            "علي حسن عويس",
-            "ام اسلام",
-            "ام يحيي",
-            "عبداللطيف ( توكتوك)",
-            "صبحي ( الحلاق )",
-          ],
-        },
-        {
-          location: "مسجد عباد الرحمن ( باب النادي )",
-          names: ["أمينه عبدالرازق", "محمود كشك ( 2 فرد )", "شعبان الشرقاوي"],
-        },
-        {
-          location: "مسجد عباد الرحمن ( باب البحر)",
-          names: ["احمد صبحي", "ابو فوزي"],
-        },
-        {
-          location: "اخر البلد",
-          names: ["ام محمود", "نوال المتعب", "محمود جابر", "احمد البهنسي"],
-        },
-        {
-          location: "الجيران",
-          names: [
-            "محمد الشربيني",
-            "حماده فريد",
-            "محمد ابوعبيه",
-            "ماهر غنيم",
-            "عبدالنبي غنيم",
-          ],
-        },
-        {
-          location: "اخر",
-          names: [
-            "شيماء",
-            "بتاع الزباله",
-            "عبدالحميد ( بحر )",
-            "السيد العربي",
-            "صباح ( عيش )",
-            "شيماء ( عيش )",
-          ],
-        },
-        {
-          location: "الاقارب",
-          names: [
-            "عبدالعزيز كشك ( 3 فرد )",
-            "إسلام كشك ( 2 فرد )",
-            "عوفه غنيم ( 2 فرد )",
-            "حسن النشار ( 3 فرد )",
-            "إبراهيم الجوهري ( 1 فرد )",
-            "عبدالمنعم النشار ( 4 فرد )",
-            "فوزي الجزار ( 2 فرد )",
-            "عفاف الجزار ( 2 فرد )",
-            "هناء الجزار ( 2 فرد )",
-            "أحمد الحصاوي ( 5 فرد )",
-          ],
-        },
-        {
-          location: "أهالي البيت",
-          names: [
-            "إيهاب الترابه",
-            "محمد الترابه",
-            "محمد عبداللطيف كشك",
-            "محمد راغب",
-            "عبدالهادي ابو طاحون",
-            "عماد كشك",
-            "عادل عايد",
-          ],
-        },
-      ];
+        // البيانات
+        const data = [
+            { location: "وسط البلد ( قبل محاسن )", names: ["راضي كشك", "طارق الدسوقي", "مرات محمد زيدان", "مرات نجاح", "هانم", "محمد عز", "ابو اليزيد"] },
+            { location: "ع الطريق", names: ["ابو سمير", "مرات منتصر", "ام عبد الحميد ( كفر الصعايدة )"] },
+            { location: "مسجد الكردي", names: ["محمد حجاج"] },
+            { location: "مسجد سيدي سالم", names: ["ام رجب عويس", "سالم عويس", "محروس عويس", "ام اسامه", "محمد رشاد", "خميس عويس"] },
+            { location: "اول شارع الحضانه", names: ["بيت إبراهيم صالح ( 3 فرد )"] },
+            { location: "شارع الحضانه", names: ["رجب عويس", "باسم زيدان", "محمود زيدان", "احمد زيدان", "عماد كشك"] },
+            { location: "اول شارع حماده ندا", names: ["شتا ( بيت الدرجيني )", "باشا", "صلوحه"] },
+            { location: "شارع البراجيه", names: ["مرات المغاوري", "بنت ابراهيم صالح ( تكمله البيت )", "صفاء عيسي", "علاء كشك", "رمضان كشك", "محمد الربع", "رجب حسن عويس", "علي حسن عويس", "ام اسلام", "ام يحيي", "عبداللطيف ( توكتوك)", "صبحي ( الحلاق )"] },
+            { location: "مسجد عباد الرحمن ( باب النادي )", names: ["أمينه عبدالرازق", "محمود كشك ( 2 فرد )", "شعبان الشرقاوي"] },
+            { location: "مسجد عباد الرحمن ( باب البحر)", names: ["احمد صبحي", "ابو فوزي"] },
+            { location: "اخر البلد", names: ["ام محمود", "نوال المتعب", "محمود جابر", "احمد البهنسي"] },
+            { location: "الجيران", names: ["محمد الشربيني", "حماده فريد", "محمد ابوعبيه", "ماهر غنيم", "عبدالنبي غنيم"] },
+            { location: "اخر", names: ["شيماء", "بتاع الزباله", "عبدالحميد ( بحر )", "السيد العربي", "صباح ( عيش )", "شيماء ( عيش )"] },
+            { location: "الاقارب", names: ["عبدالعزيز كشك ( 3 فرد )", "إسلام كشك ( 2 فرد )", "عوفه غنيم ( 2 فرد )", "حسن النشار ( 3 فرد )", "إبراهيم الجوهري ( 1 فرد )", "عبدالمنعم النشار ( 4 فرد )", "فوزي الجزار ( 2 فرد )", "عفاف الجزار ( 2 فرد )", "هناء الجزار ( 2 فرد )", "أحمد الحصاوي ( 5 فرد )"] },
+            { location: "أهالي البيت", names: ["إيهاب الترابه", "محمد الترابه", "محمد عبداللطيف كشك", "محمد راغب", "عبدالهادي ابو طاحون", "عماد كشك", "عادل عايد"] }
+        ];
 
-      function initApp() {
-        const uiContainer = document.getElementById("ui-container");
+        function initApp() {
+            const uiContainer = document.getElementById('ui-container');
+            
+            let totalNames = 0;
+            let uiHtml = '';
 
-        let totalNames = 0;
-        let uiHtml = "";
+            data.forEach((section, index) => {
+                totalNames += section.names.length;
+                const delay = (index * 0.05) + 0.1;
 
-        data.forEach((section, index) => {
-          totalNames += section.names.length;
-          const delay = index * 0.05 + 0.1;
+                let namesUi = '';
+                section.names.forEach((name, nIndex) => {
+                    // تكوين كود مميز لكل اسم لربطه بالذاكرة
+                    const uniqueId = `qurban_${index}_${nIndex}`;
+                    // فحص الذاكرة
+                    const isChecked = localStorage.getItem(uniqueId) === 'true';
+                    
+                    const checkedClass = isChecked ? 'checked' : '';
+                    const textClass = isChecked ? 'text-slate-400 line-through' : 'text-slate-700';
 
-          let namesUi = "";
-          section.names.forEach((name, nIndex) => {
-            // تكوين كود مميز لكل اسم لربطه بالذاكرة
-            const uniqueId = `qurban_${index}_${nIndex}`;
-            // فحص الذاكرة
-            const isChecked = localStorage.getItem(uniqueId) === "true";
-
-            const checkedClass = isChecked ? "checked" : "";
-            const textClass = isChecked
-              ? "text-slate-400 line-through"
-              : "text-slate-700";
-
-            namesUi += `
+                    namesUi += `
                         <div class="flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 border border-transparent hover:border-slate-100 transition-colors cursor-pointer group" onclick="toggleCheck(this, '${uniqueId}')">
                             <span class="font-bold text-[1.05rem] sm:text-[1.1rem] transition-colors ${textClass}">${name}</span>
                             <div class="custom-checkbox shadow-sm ${checkedClass}"></div>
                         </div>
                     `;
-          });
+                });
 
-          uiHtml += `
+                uiHtml += `
                     <div class="bg-white rounded-3xl p-5 sm:p-6 shadow-[0_4px_20px_rgb(0,0,0,0.04)] border border-slate-100 card-enter" style="animation-delay: ${delay}s">
                         <div class="flex items-center gap-3 mb-4 pb-4 border-b border-slate-100">
                             <div class="w-10 h-10 rounded-xl bg-brand-50 flex items-center justify-center text-brand-600 flex-shrink-0">
@@ -385,141 +178,121 @@
                         </div>
                     </div>
                 `;
-        });
+            });
 
-        // إدراج الواجهة
-        uiContainer.innerHTML = uiHtml;
+            // إدراج الواجهة
+            uiContainer.innerHTML = uiHtml;
 
-        // تحديث الإحصائيات
-        document.getElementById("stats-sections").textContent =
-          `${data.length} منطقة`;
-        document.getElementById("stats-names").textContent =
-          `${totalNames} إسم`;
-      }
-
-      // دالة التحديد وتحديث الذاكرة
-      function toggleCheck(element, uniqueId) {
-        const checkbox = element.querySelector(".custom-checkbox");
-        const textSpan = element.querySelector("span");
-
-        const isNowChecked = !checkbox.classList.contains("checked");
-
-        if (isNowChecked) {
-          checkbox.classList.add("checked");
-          textSpan.classList.replace("text-slate-700", "text-slate-400");
-          textSpan.classList.add("line-through");
-          localStorage.setItem(uniqueId, "true"); // الحفظ في الذاكرة
-        } else {
-          checkbox.classList.remove("checked");
-          textSpan.classList.replace("text-slate-400", "text-slate-700");
-          textSpan.classList.remove("line-through");
-          localStorage.setItem(uniqueId, "false"); // الحذف من الذاكرة
+            // تحديث الإحصائيات
+            document.getElementById('stats-sections').textContent = `${data.length} منطقة`;
+            document.getElementById('stats-names').textContent = `${totalNames} إسم`;
         }
-      }
 
-      // دالة مسح كل التحديدات
-      function clearAllData() {
-        if (confirm("هل أنت متأكد من مسح جميع التحديدات؟")) {
-          // مسح كل ما يبدأ بـ qurban من الذاكرة
-          Object.keys(localStorage).forEach((key) => {
-            if (key.startsWith("qurban_")) {
-              localStorage.removeItem(key);
+        // دالة التحديد وتحديث الذاكرة
+        function toggleCheck(element, uniqueId) {
+            const checkbox = element.querySelector('.custom-checkbox');
+            const textSpan = element.querySelector('span');
+            
+            const isNowChecked = !checkbox.classList.contains('checked');
+            
+            if(isNowChecked) {
+                checkbox.classList.add('checked');
+                textSpan.classList.replace('text-slate-700', 'text-slate-400');
+                textSpan.classList.add('line-through');
+                localStorage.setItem(uniqueId, 'true'); // الحفظ في الذاكرة
+            } else {
+                checkbox.classList.remove('checked');
+                textSpan.classList.replace('text-slate-400', 'text-slate-700');
+                textSpan.classList.remove('line-through');
+                localStorage.setItem(uniqueId, 'false'); // الحذف من الذاكرة
             }
-          });
-          // إعادة تحميل الواجهة
-          initApp();
         }
-      }
 
-      // دالة توليد الـ PDF المضبوط (الحل الجذري النهائي باستخدام LTR مع Flex-Reverse)
-      // دالة توليد الـ PDF المضبوطة (حل مشكلة القص على الموبايلات)
-      // دالة توليد الـ PDF النهائية (بدون قص أو تقسيم ورقة)
-      // دالة توليد الـ PDF النهائية (نظام الورقة المخصصة الديناميكية)
-      // دالة توليد الـ PDF النهائية والمستقرة 100%
-      // دالة توليد الـ PDF المضبوطة للعمل محلياً على VS Code
-      function generatePDF() {
-        const btn = document.getElementById("downloadBtn");
-        const btnText = document.getElementById("btnText");
+        // دالة مسح كل التحديدات
+        function clearAllData() {
+            if(confirm("هل أنت متأكد من مسح جميع التحديدات؟")) {
+                // مسح كل ما يبدأ بـ qurban من الذاكرة
+                Object.keys(localStorage).forEach(key => {
+                    if(key.startsWith('qurban_')) {
+                        localStorage.removeItem(key);
+                    }
+                });
+                // إعادة تحميل الواجهة
+                initApp();
+            }
+        }
 
-        const originalText = btnText.innerText;
-        btnText.innerText = "جاري معالجة الكشف وتجهيز الورقة...";
-        btn.classList.add("opacity-75", "cursor-wait");
+        // دالة توليد الـ PDF المضبوط (الحل الجذري النهائي باستخدام LTR مع Flex-Reverse)
+        function generatePDF() {
+            const btn = document.getElementById('downloadBtn');
+            const btnText = document.getElementById('btnText');
+            
+            // تغيير حالة الزر
+            const originalText = btnText.innerText;
+            btnText.innerText = 'جاري معالجة الكشف وتجهيز الورقة...';
+            btn.classList.add('opacity-75', 'cursor-wait');
 
-        const dateStr = new Date().toLocaleDateString("ar-EG", {
-          weekday: "long",
-          year: "numeric",
-          month: "long",
-          day: "numeric",
-        });
-        const checkSVG = `<svg viewBox="0 0 24 24" width="14" height="14" stroke="#16a34a" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round" style="margin: -1px -1px 0 0;"><polyline points="20 6 9 17 4 12"></polyline></svg>`;
+            const dateStr = new Date().toLocaleDateString('ar-EG', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+            const checkSVG = `<svg viewBox="0 0 24 24" width="14" height="14" stroke="#16a34a" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round" style="margin: -1px -1px 0 0;"><polyline points="20 6 9 17 4 12"></polyline></svg>`;
 
-        // 1. تقسيم البيانات إلى 3 أعمدة
-        const columnsData = [[], [], []];
-        const totalWeight = data.reduce(
-          (acc, sec) => acc + sec.names.length + 3,
-          0,
-        );
-        const targetWeight = totalWeight / 3;
+            // 1. تقسيم البيانات إلى 3 أعمدة
+            const columnsData = [[], [], []];
+            const totalWeight = data.reduce((acc, sec) => acc + sec.names.length + 3, 0); 
+            const targetWeight = totalWeight / 3;
+            
+            let currCol = 0;
+            let currWeight = 0;
+            
+            data.forEach((section, index) => {
+                const weight = section.names.length + 3;
+                if (currCol < 2 && currWeight > 0 && (currWeight + (weight * 0.6) > targetWeight)) {
+                    currCol++;
+                    currWeight = 0;
+                }
+                columnsData[currCol].push({ section, originalIndex: index });
+                currWeight += weight;
+            });
 
-        let currCol = 0;
-        let currWeight = 0;
+            // 2. بناء أعمدة الكشف (خدعة row-reverse لترتيب العناصر من اليمين لليسار داخل بيئة LTR)
+            let colsHtml = '';
+            columnsData.forEach(col => {
+                let colItemsHtml = '';
+                col.forEach(item => {
+                    let section = item.section;
+                    let index = item.originalIndex;
+                    let itemsHtml = '';
+                    
+                    section.names.forEach((name, nIndex) => {
+                        const uniqueId = `qurban_${index}_${nIndex}`;
+                        const isChecked = localStorage.getItem(uniqueId) === 'true';
+                        const boxContent = isChecked ? checkSVG : '';
+                        const textStyle = isChecked ? 'text-decoration: line-through; color: #94a3b8;' : 'color: #1e293b;';
 
-        data.forEach((section, index) => {
-          const weight = section.names.length + 3;
-          if (
-            currCol < 2 &&
-            currWeight > 0 &&
-            currWeight + weight * 0.6 > targetWeight
-          ) {
-            currCol++;
-            currWeight = 0;
-          }
-          columnsData[currCol].push({ section, originalIndex: index });
-          currWeight += weight;
-        });
-
-        // 2. بناء أعمدة الكشف
-        let colsHtml = "";
-        columnsData.forEach((col) => {
-          let colItemsHtml = "";
-          col.forEach((item) => {
-            let section = item.section;
-            let index = item.originalIndex;
-            let itemsHtml = "";
-
-            section.names.forEach((name, nIndex) => {
-              const uniqueId = `qurban_${index}_${nIndex}`;
-              const isChecked = localStorage.getItem(uniqueId) === "true";
-              const boxContent = isChecked ? checkSVG : "";
-              const textStyle = isChecked
-                ? "text-decoration: line-through; color: #94a3b8;"
-                : "color: #1e293b;";
-
-              itemsHtml += `
-                            <div style="display: flex; flex-direction: row-reverse; justify-content: space-between; align-items: center; border-bottom: 1px solid #e2e8f0; padding: 5px 0;">
-                                <span dir="rtl" style="font-size: 12px; font-weight: 700; text-align: right; ${textStyle}">${name}</span>
+                        itemsHtml += `
+                            <div style="display: flex; flex-direction: row-reverse; justify-content: space-between; align-items: center; border-bottom: 1px solid #e2e8f0; padding: 4px 0;">
+                                <span dir="rtl" style="font-size: 11px; font-weight: 700; text-align: right; ${textStyle}">${name}</span>
                                 <div style="width: 14px; height: 14px; border: 1.5px solid #cbd5e1; border-radius: 3px; background: white; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">${boxContent}</div>
                             </div>
                         `;
-            });
+                    });
 
-            colItemsHtml += `
+                    colItemsHtml += `
                         <div style="margin-bottom: 12px; background: #f8fafc; padding: 10px; border-radius: 8px; border: 1px solid #e2e8f0;">
-                            <div dir="rtl" style="font-size: 14px; font-weight: 900; color: #14532d; border-bottom: 2px solid #22c55e; padding-bottom: 4px; margin-bottom: 6px; text-align: right;">
+                            <div dir="rtl" style="font-size: 13px; font-weight: 900; color: #14532d; border-bottom: 2px solid #22c55e; padding-bottom: 4px; margin-bottom: 6px; text-align: right;">
                                 ${section.location}
                             </div>
                             <div style="display: flex; flex-direction: column;">${itemsHtml}</div>
                         </div>
                     `;
-          });
-          // عرض العمود 32% عشان يسيب مسافات بسيطة بينهم
-          colsHtml += `<div style="width: 32%; display: flex; flex-direction: column;">${colItemsHtml}</div>`;
-        });
+                });
+                colsHtml += `<div style="width: 31%; display: flex; flex-direction: column;">${colItemsHtml}</div>`;
+            });
 
-        // 3. بناء الكود النصي الكامل
-        // تم تعديل الـ padding ليكون متساوي (30px) وتم إضافة min-height بطول ورقة A4
-        const pdfHtmlString = `
-                <div dir="ltr" style="width: 794px; min-height: 1123px; padding: 30px; background-color: #ffffff; box-sizing: border-box; font-family: 'Cairo', sans-serif;">
+            // 3. بناء الكود النصي الكامل
+            // المستند LTR لمنع مكتبة html2canvas من قص الصفحة، ونستخدم row-reverse لعكس الأعمدة لليمين
+            // تمت إضافة padding-left: 20px في الغلاف الخارجي للمحتوى.
+            const pdfHtmlString = `
+                <div dir="ltr" style="width: 794px; padding: 5px 30px 80px 150px; background-color: #ffffff; box-sizing: border-box; font-family: 'Cairo', sans-serif;">
                     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;900&display=swap" rel="stylesheet">
                     <div style="text-align: center; margin-bottom: 25px;">
                         <h1 dir="rtl" style="font-size: 28px; font-weight: 900; color: #14532d; margin: 0 0 5px 0;">كشف توزيع لحوم الأضحية</h1>
@@ -532,45 +305,39 @@
                 </div>
             `;
 
-        // 4. إعدادات الطباعة الدقيقة
-        const opt = {
-          margin: 0,
-          filename: "كشف_أضحية_آل_كشك.pdf",
-          image: { type: "jpeg", quality: 1 },
-          html2canvas: {
-            scale: 2,
-            useCORS: true,
-            windowWidth: 794,
-            width: 794,
-          },
-          // استخدام البيكسل لتطابق الأبعاد مع الـ div الخارجي وتجنب القص
-          jsPDF: { unit: "px", format: [794, 1123], orientation: "portrait" },
-        };
+            // 4. إعدادات الطباعة الدقيقة
+            const opt = {
+                margin:       0,
+                filename:     'كشف_أضحية_آل_كشك.pdf',
+                image:        { type: 'jpeg', quality: 1 },
+                html2canvas:  { 
+                    scale: 2, 
+                    useCORS: true,
+                    windowWidth: 794,
+                    width: 794
+                },
+                jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
 
-        // 5. التنفيذ
-        html2pdf()
-          .set(opt)
-          .from(pdfHtmlString)
-          .save()
-          .then(() => {
-            btnText.innerText = "تم الحفظ بنجاح!";
-            setTimeout(() => {
-              btnText.innerText = originalText;
-              btn.classList.remove("opacity-75", "cursor-wait");
-            }, 2000);
-          })
-          .catch((err) => {
-            console.error("خطأ: ", err);
-            btnText.innerText = "حدث خطأ، حاول مجدداً";
-            setTimeout(() => {
-              btnText.innerText = originalText;
-              btn.classList.remove("opacity-75", "cursor-wait");
-            }, 2000);
-          });
-      }
+            // 5. التنفيذ (بناء الـ PDF من النص مباشرة يمنع مشكلة الورقة البيضاء)
+            html2pdf().set(opt).from(pdfHtmlString).save().then(() => {
+                btnText.innerText = 'تم الحفظ بنجاح!';
+                setTimeout(() => {
+                    btnText.innerText = originalText;
+                    btn.classList.remove('opacity-75', 'cursor-wait');
+                }, 2000);
+            }).catch(err => {
+                console.error("خطأ: ", err);
+                btnText.innerText = 'حدث خطأ، حاول مجدداً';
+                setTimeout(() => {
+                    btnText.innerText = originalText;
+                    btn.classList.remove('opacity-75', 'cursor-wait');
+                }, 2000);
+            });
+        }
 
-      // بدء التشغيل عند التحميل
-      window.onload = initApp;
+        // بدء التشغيل عند التحميل
+        window.onload = initApp;
     </script>
-  </body>
+</body>
 </html>
